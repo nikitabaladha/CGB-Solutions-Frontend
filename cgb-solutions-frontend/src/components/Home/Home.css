@@ -1,0 +1,65 @@
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.welcome {
+  color: #d67e25;
+  font-family: "Lobster", cursive;
+  animation: fadeInOut 5s linear infinite;
+  font-weight: bold;
+}
+
+h1 {
+  font-family: "Noto Serif";
+  margin-bottom: 100px;
+}
+
+h2 {
+  color: #0d4278;
+  font-size: 90px;
+}
+
+.welcome {
+  font-size: 100px;
+}
+
+.background-image {
+  background-image: url("../../images/book.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#mainDiv {
+  background-color: #effafc;
+  padding-top: 50px;
+}
+
+.quotes {
+  margin-top: 150px;
+}
+
+@media (max-width: 767px) {
+  .welcome {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}

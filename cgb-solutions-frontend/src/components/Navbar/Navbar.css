@@ -1,0 +1,102 @@
+#brand-logo {
+  width: 130px;
+  margin-left: 50px;
+  margin-right: 400px;
+}
+
+.navbar-nav .nav-link {
+  color: #0d4278;
+  font-family: "Playfair Display", sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  margin-right: 20px;
+  border-bottom: 3px solid transparent;
+}
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 4px 2px -2px gray;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-nav .nav-link:hover {
+  border-bottom: 3px solid #0d4278;
+}
+
+.login-button,
+.logout-button,
+.signup-button {
+  font-family: "Playfair Display", sans-serif;
+  color: #0d4278;
+  border-color: #0d4278;
+  box-shadow: 0 0 10px rgba(13, 66, 120, 0.5);
+  border-radius: 5px;
+}
+
+.login-button,
+.logout-button {
+  margin-right: 20px;
+}
+
+.signup-button {
+  margin-right: 40px;
+}
+
+.login-button:hover,
+.logout-button:hover,
+.signup-button:hover {
+  background-color: #0d4278;
+  color: white;
+}
+
+.modal-header {
+  background-color: #effafc;
+  border-bottom: 1px solid #90a5ba;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-title {
+  color: #0d4278;
+  font-size: 24px;
+  font-family: "Playfair Display", sans-serif;
+}
+
+@media (max-width: 767px) {
+  #brand-logo {
+    width: 100px;
+    margin-left: 20px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  .login-button,
+  .logout-button .signup-button {
+    font-size: 12px;
+    margin-right: 10px;
+    padding: 3px 8px;
+  }
+
+  .navbar-collapse {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  #brand-logo {
+    margin-right: 0;
+  }
+}
