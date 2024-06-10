@@ -1,4 +1,4 @@
-@keyframes fadeInOut {
+/* @keyframes fadeInOut {
   0% {
     opacity: 0;
   }
@@ -62,4 +62,27 @@ h2 {
   h2 {
     font-size: 1.5rem;
   }
+} */
+
+/* ============================================ */
+
+.blog {
+  margin-bottom: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+
+.summary {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.image-container {
+  height: 180px;
+  overflow: hidden;
 }
