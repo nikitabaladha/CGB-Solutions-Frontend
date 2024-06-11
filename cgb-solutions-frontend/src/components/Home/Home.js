@@ -1,6 +1,7 @@
-// components/Home.js
+// components/Home/Home.js
 
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import getAPI from "../../Api/axiosGet";
 import Navbar from "../Navbar/Navbar.js";
@@ -41,16 +42,20 @@ const Home = () => {
               <div className="row">
                 <div className="col-md-4">
                   <div className="image-container">
-                    <img
-                      src={blog.bannerImageUrl}
-                      alt={blog.title}
-                      className="img-fluid"
-                    />
+                    <Link to={`/blog/${blog._id}`}>
+                      <img
+                        src={blog.bannerImageUrl}
+                        alt={blog.title}
+                        className="img-fluid"
+                      />
+                    </Link>
                   </div>
                 </div>
                 <div className="col-md-8">
                   <div className="blog-content">
-                    <h3>{blog.title}</h3>
+                    <h3>
+                      <Link to={`/blog/${blog._id}`}>{blog.title}</Link>
+                    </h3>
                     <p>
                       <strong>{blog.userName}</strong> | {blog.date}
                     </p>

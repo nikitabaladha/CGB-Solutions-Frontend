@@ -1,0 +1,22 @@
+/* Blog.css */
+
+/* Style for the banner image */
+.bannerImage img {
+  width: 100%; /* Ensure the image fills its container */
+  max-height: 300px; /* Set maximum height to avoid stretching */
+  object-fit: contain; /* Ensure the image covers the container */
+}
+
+/* Style for the content image */
+.contentImage img {
+  width: 100%; /* Ensure the image fills its container */
+  max-height: 300px; /* Set maximum height to avoid stretching */
+  object-fit: contain; /* Ensure the image covers the container */
+}
+
+/* Style for the summary */
+.summary {
+  margin-top: 20px; /* Add some margin above the summary */
+  font-size: 18px; /* Set font size */
+  line-height: 1.5; /* Set line height */
+}
