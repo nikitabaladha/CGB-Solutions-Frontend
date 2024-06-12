@@ -44,7 +44,10 @@ const Blog = () => {
 
     return (
       <div className="summary">
-        <div dangerouslySetInnerHTML={{ __html: firstPart }} />
+        <div
+          className="summary-part first-part"
+          dangerouslySetInnerHTML={{ __html: firstPart }}
+        />
 
         {blog && blog.contentImageUrl && (
           <div className="contentImage">
@@ -52,7 +55,10 @@ const Blog = () => {
           </div>
         )}
 
-        <div dangerouslySetInnerHTML={{ __html: secondPart }} />
+        <div
+          className="summary-part second-part"
+          dangerouslySetInnerHTML={{ __html: secondPart }}
+        />
       </div>
     );
   };
@@ -64,12 +70,16 @@ const Blog = () => {
         {error && <p className="error">Error: {error}</p>}
         {blog ? (
           <div className="blog">
-            <h2>{blog.title}</h2>
-            <p>
-              <strong>{blog.userName}</strong> |{" "}
-              {new Date(blog.date).toISOString().split("T")[0]}
+            <div className="title">
+              <h2>{blog.title}</h2>
+            </div>
+
+            <p className="date-author">
+              {new Date(blog.date).toISOString().split("T")[0]} | By{" "}
+              <strong>{blog.userName}</strong>
             </p>
-            <div className="bannerImage">
+
+            <div className="bannerImage col-md-8">
               <img src={blog.bannerImageUrl} alt="Blog Banner" />
             </div>
 

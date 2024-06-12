@@ -77,12 +77,22 @@ h2 {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  /* -webkit-line-clamp: 3; */
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   white-space: normal;
+  text-align: justify;
+  /* padding: 0 50px; */
 }
 
 .image-container {
-  height: 180px;
+  height: 240px;
   overflow: hidden;
+  padding: 20px;
+  margin-bottom: 0px;
+}
+
+@media (max-width: 600px) {
+  .image-container {
+    padding: 0 !important;
+  }
 }

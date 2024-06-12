@@ -1,22 +1,65 @@
-/* Blog.css */
+/* Blog.css  */
 
-/* Style for the banner image */
+.bannerImage {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .bannerImage img {
-  width: 100%; /* Ensure the image fills its container */
-  max-height: 300px; /* Set maximum height to avoid stretching */
-  object-fit: contain; /* Ensure the image covers the container */
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  overflow: hidden;
 }
 
-/* Style for the content image */
 .contentImage img {
-  width: 100%; /* Ensure the image fills its container */
-  max-height: 300px; /* Set maximum height to avoid stretching */
-  object-fit: contain; /* Ensure the image covers the container */
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
 }
 
-/* Style for the summary */
 .summary {
-  margin-top: 20px; /* Add some margin above the summary */
-  font-size: 18px; /* Set font size */
-  line-height: 1.5; /* Set line height */
+  margin-top: 20px;
+  padding: 0 50px;
+  text-align: justify;
+}
+
+.blog {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.summary-part {
+  margin-bottom: 20px;
+}
+
+.title,
+.date-author {
+  padding: 0 50px;
+}
+
+@media (max-width: 600px) {
+  .summary {
+    padding: 0 10px;
+  }
+
+  .contentImage {
+    margin: 10px 0;
+  }
 }
