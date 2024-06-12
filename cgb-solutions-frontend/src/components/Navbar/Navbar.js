@@ -56,7 +56,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
-        <h1>My Blog</h1>
+        <h1 id="brand-logo">BloggerBuddy</h1>
         <button
           className="navbar-toggler"
           type="button"
@@ -69,7 +69,7 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div
-          className="collapse navbar-collapse middlePart"
+          className="collapse navbar-collapse middlePart nav-btn"
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav mb-2 mb-lg-0">

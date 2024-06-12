@@ -100,7 +100,7 @@ const Signup = ({ onLoginClick, onSuccess }) => {
             onChange={handleChange}
             id="role"
             name="role"
-            className="form-control"
+            className="form-control role-text"
             required
           >
             <option value="">Select Role</option>
@@ -110,10 +110,10 @@ const Signup = ({ onLoginClick, onSuccess }) => {
         </div>
 
         {generalError && <p className="error">{generalError}</p>}
-        <button type="submit" className="btn btn-primary mt-2">
+        <button type="submit" className="btn btn-primary mt-3 submit">
           Submit
         </button>
-        <div className="mt-2">
+        <div className="mt-2 signup-text">
           Already have an account?{" "}
           <span
             className="text-primary"

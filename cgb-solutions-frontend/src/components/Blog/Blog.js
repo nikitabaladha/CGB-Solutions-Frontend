@@ -43,7 +43,7 @@ const Blog = () => {
     const secondPart = paragraphs.slice(splitIndex).join("<br>");
 
     return (
-      <div className="summary">
+      <div className="summary-blog">
         <div
           className="summary-part first-part"
           dangerouslySetInnerHTML={{ __html: firstPart }}

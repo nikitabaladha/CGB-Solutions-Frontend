@@ -11,12 +11,14 @@ input {
   font-family: "Times New Roman", Times, serif;
 }
 
-btn btn-primary {
-  font-family: "Times New Roman", Times, serif;
-}
-
 .error {
   color: red;
   margin-top: 5px;
   text-transform: capitalize;
+}
+
+btn btn-primary,
+.login-text,
+.submit {
+  font-family: "Times New Roman", Times, serif;
 }

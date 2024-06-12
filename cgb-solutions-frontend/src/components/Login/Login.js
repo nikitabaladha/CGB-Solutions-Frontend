@@ -78,11 +78,13 @@ const Login = ({ onSignupClick, onSuccess }) => {
             required
           />
         </div>
+
         {generalError && <p className="error">{generalError}</p>}
-        <button type="submit" className="btn btn-primary mt-2">
+
+        <button type="submit" className="btn btn-primary mt-3 submit">
           Submit
         </button>
-        <div className="mt-2">
+        <div className="mt-2 login-text">
           Don't have an account?{" "}
           <span
             className="text-primary"

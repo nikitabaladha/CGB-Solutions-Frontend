@@ -11,7 +11,10 @@ input {
   font-family: "Times New Roman", Times, serif;
 }
 
-btn btn-primary {
+btn btn-primary,
+.signup-text,
+.submit,
+.role-text {
   font-family: "Times New Roman", Times, serif;
 }
 

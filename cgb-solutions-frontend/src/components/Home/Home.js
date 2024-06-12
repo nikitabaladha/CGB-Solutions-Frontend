@@ -53,11 +53,12 @@ const Home = () => {
                 </div>
                 <div className="col-md-8">
                   <div className="blog-content">
-                    <h3>
+                    <h3 className="blog-title">
                       <Link to={`/blog/${blog._id}`}>{blog.title}</Link>
                     </h3>
-                    <p>
-                      <strong>{blog.userName}</strong> | {blog.date}
+                    <p className="blog-userName">
+                      {new Date(blog.date).toISOString().split("T")[0]} | By{" "}
+                      <strong>{blog.userName}</strong>
                     </p>
                     <div
                       className="summary"

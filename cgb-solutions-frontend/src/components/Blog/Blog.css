@@ -20,17 +20,10 @@
   object-fit: contain;
 }
 
-.summary {
+.summary-blog {
   margin-top: 20px;
   padding: 0 50px;
   text-align: justify;
-}
-
-.blog {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .blog {
@@ -47,11 +40,13 @@
 
 .summary-part {
   margin-bottom: 20px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .title,
 .date-author {
-  padding: 0 50px;
+  padding: 0 50px 10px 50px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 @media (max-width: 600px) {
