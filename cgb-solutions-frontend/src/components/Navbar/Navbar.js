@@ -74,14 +74,24 @@ const Navbar = () => {
         >
           <ul className="navbar-nav mb-2 mb-lg-0">
             {isLoggedIn ? (
-              <li className="nav-item">
-                <button
-                  className="nav-link logout-button"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </button>
-              </li>
+              <>
+                <li className="nav-item">
+                  <button
+                    className="nav-link create-blog-button"
+                    onClick={handleLogout}
+                  >
+                    Create Blog
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="nav-link logout-button"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
             ) : (
               <>
                 <li className="nav-item">
