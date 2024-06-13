@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { format } from "date-fns";
 import "./Home.css";
 import getAPI from "../../Api/axiosGet";
 import Navbar from "../Navbar/Navbar.js";
@@ -16,7 +17,8 @@ const Home = () => {
         const response = await getAPI("/blog", false);
         const modifiedBlogs = response.data.data.map((blog) => ({
           ...blog,
-          date: new Date(blog.date).toISOString().split("T")[0],
+
+          date: format(new Date(blog.date), "yyyy-MM-dd HH:mm:ss"),
         }));
         setBlogs(modifiedBlogs);
         console.log(modifiedBlogs);
@@ -57,8 +59,7 @@ const Home = () => {
                       <Link to={`/blog/${blog._id}`}>{blog.title}</Link>
                     </h3>
                     <p className="blog-userName">
-                      {new Date(blog.date).toISOString().split("T")[0]} | By{" "}
-                      <strong>{blog.userName}</strong>
+                      {blog.date} | By <strong>{blog.userName}</strong>
                     </p>
                     <div
                       className="summary"

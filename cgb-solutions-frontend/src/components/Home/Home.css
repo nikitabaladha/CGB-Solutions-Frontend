@@ -12,9 +12,8 @@
   -webkit-box-orient: vertical;
   white-space: normal;
   text-align: justify;
-  /* font-family: "Playfair Display", sans-serif; */
   font-family: "Times New Roman", Times, serif;
-  /* padding: 0 50px; */
+  font-size: 1rem;
 }
 
 .image-container {
@@ -31,6 +30,11 @@
 
 .blog-title {
   margin-top: 10px;
+  font-size: 2rem;
+}
+
+.blog-userName {
+  font-size: 1rem;
 }
 
 .blog-title a {

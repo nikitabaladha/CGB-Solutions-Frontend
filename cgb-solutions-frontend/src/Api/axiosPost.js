@@ -1,4 +1,4 @@
-// postAPI.js
+// src/Api/axiosPost.js
 
 import Axios from "axios";
 
@@ -21,6 +21,7 @@ async function postAPI(url, payload, headers = {}, isPrivate = true) {
     const response = await axios.post(url, payload, {
       headers: {
         access_token: accessToken,
+        ...headers,
       },
     });
 
