@@ -35,6 +35,10 @@ const Login = ({ onSignupClick, onSuccess }) => {
           "accessToken",
           JSON.stringify(response.data.token)
         );
+        localStorage.setItem(
+          "userDetails",
+          JSON.stringify(response.data.userDetails)
+        );
         onSuccess();
       } else {
         console.error("Login Error:", response.data.message);

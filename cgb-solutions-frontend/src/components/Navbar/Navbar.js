@@ -57,6 +57,9 @@ const Navbar = () => {
     navigate("/create-blog");
   };
 
+  const handleYourBlog = () => {
+    navigate("/your-blog");
+  };
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
@@ -85,6 +88,14 @@ const Navbar = () => {
                     onClick={handleCreateBlog}
                   >
                     Create Blog
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="nav-link your-blog-button"
+                    onClick={handleYourBlog}
+                  >
+                    Your Blogs
                   </button>
                 </li>
                 <li className="nav-item">

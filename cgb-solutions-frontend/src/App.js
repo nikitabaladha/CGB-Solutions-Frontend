@@ -3,8 +3,10 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home/Home.js";
-import CreateBlog from "./components/CreateBlog/CreateBlog.js";
 import Blog from "./components/Blog/Blog.js";
+import CreateBlog from "./components/CreateBlog/CreateBlog.js";
+import EditBlog from "./components/EditBlog/EditBlog.js";
+import YourBlog from "./components/YourBlog/YourBlog.js";
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/blog/:id" element={<Blog />} />
         <Route path="/create-blog" element={<CreateBlog />} />
+        <Route path="/edit-blog" element={<EditBlog />} />
+        <Route path="/your-blog" element={<YourBlog />} />
       </Routes>
     </BrowserRouter>
   );
