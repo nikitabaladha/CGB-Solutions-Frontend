@@ -91,6 +91,7 @@ const UpdateBlogForm = () => {
       });
 
       if (!response.hasError) {
+        alert(response.data.message);
         console.log("Successful Blog update Message:", response.data.message);
         navigate(`/blog/${id}`);
       } else {
