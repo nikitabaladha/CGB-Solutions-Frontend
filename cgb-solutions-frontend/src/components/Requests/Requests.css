@@ -92,3 +92,18 @@
     padding: 0 !important;
   }
 }
+
+.error {
+  color: red;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.no-blogs-message {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: "Times New Roman", Times, serif;
+  margin-left: 20px;
+}

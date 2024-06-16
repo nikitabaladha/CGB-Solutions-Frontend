@@ -1,5 +1,3 @@
-// src/components/CreateBlog/CreateBlog.js
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
@@ -80,6 +78,7 @@ const CreateBlog = () => {
       console.error("Error creating blog:", errorMessage);
     }
   };
+
   const modules = {
     toolbar: [
       [{ header: "1" }, { header: "2" }, { font: [] }],
@@ -141,6 +140,14 @@ const CreateBlog = () => {
             accept="image/*"
             required
           />
+          {formData.bannerImageUrl &&
+            typeof formData.bannerImageUrl === "object" && (
+              <img
+                src={URL.createObjectURL(formData.bannerImageUrl)}
+                alt="Banner Preview"
+                className="preview-image"
+              />
+            )}
         </div>
         <div className="form-group">
           <label>Content Image</label>
@@ -152,6 +159,14 @@ const CreateBlog = () => {
             accept="image/*"
             required
           />
+          {formData.contentImageUrl &&
+            typeof formData.contentImageUrl === "object" && (
+              <img
+                src={URL.createObjectURL(formData.contentImageUrl)}
+                alt="Content Preview"
+                className="preview-image"
+              />
+            )}
         </div>
 
         <div className="form-group">

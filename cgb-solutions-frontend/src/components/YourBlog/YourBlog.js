@@ -38,7 +38,7 @@ const YourBlog = () => {
       <div className="blog-container">
         {error && <p className="error">Error: {error}</p>}
         {blogs.length === 0 ? (
-          <p>No blogs available</p>
+          <p className="no-blogs-message">No blogs available</p>
         ) : (
           blogs.map((blog) => (
             <div key={blog._id} className="blog">

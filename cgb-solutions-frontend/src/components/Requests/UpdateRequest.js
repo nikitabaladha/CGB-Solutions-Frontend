@@ -81,7 +81,7 @@ const UpdateRequest = () => {
             </div>
           ))
         ) : (
-          <p>Loading...</p>
+          <p className="no-blogs-message">Loading...</p>
         )}
       </div>
     </div>
