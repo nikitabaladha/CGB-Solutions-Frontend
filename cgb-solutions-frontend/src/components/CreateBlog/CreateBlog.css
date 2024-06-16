@@ -4,7 +4,6 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  /* background-color: #f9f9f9; */
   background-color: #effafc;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -64,7 +63,7 @@
   padding: 12px;
   font-size: 1em;
   color: #fff;
-  background-color: #007bff;
+  background-color: #09677e;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -74,4 +73,13 @@
 
 .btn:hover {
   background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  font-size: 1em;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
 }

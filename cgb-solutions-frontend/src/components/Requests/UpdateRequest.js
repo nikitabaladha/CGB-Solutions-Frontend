@@ -1,28 +1,27 @@
-// components/Home/Home.js
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { format } from "date-fns";
-import "./YourBlog.css";
+import Navbar from "../Navbar/Navbar";
 import getAPI from "../../Api/axiosGet";
+import "./Requests.css";
+import { format } from "date-fns";
 
-const YourBlog = () => {
-  const [blogs, setBlogs] = useState([]);
+const UpdateRequest = () => {
+  const [requests, setRequests] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const userId = localStorage.getItem("userId");
-
     const fetchBlogs = async () => {
       try {
-        const response = await getAPI(`/blog/user/${userId}`);
-        const modifiedBlogs = response.data.data.map((blog) => ({
-          ...blog,
-
-          date: format(new Date(blog.date), "yyyy-MM-dd HH:mm:ss"),
-        }));
-        setBlogs(modifiedBlogs);
-        console.log(modifiedBlogs);
+        const response = await getAPI("/update-request");
+        if (response.data && !response.data.hasError) {
+          const modifiedBlogs = response.data.data.map((blog) => ({
+            ...blog,
+            date: format(new Date(blog.date), "yyyy-MM-dd HH:mm:ss"),
+          }));
+          setRequests(modifiedBlogs);
+        } else {
+          setError(response.data.message || "Error fetching requests");
+        }
       } catch (err) {
         setError(err.message);
         console.error("Error fetching blogs:", err);
@@ -34,18 +33,21 @@ const YourBlog = () => {
 
   return (
     <div>
-      <h2>All Your Blog...</h2>
+      <Navbar />
       <div className="blog-container">
         {error && <p className="error">Error: {error}</p>}
-        {blogs.length === 0 ? (
-          <p>No blogs available</p>
-        ) : (
-          blogs.map((blog) => (
+        {requests.length > 0 ? (
+          requests.map((blog) => (
             <div key={blog._id} className="blog">
               <div className="row">
                 <div className="col-md-4">
                   <div className="image-container">
-                    <Link to={`/update-blog/${blog._id}`}>
+                    <Link
+                      to={{
+                        pathname: `/blog/${blog._id}`,
+                      }}
+                      state={{ from: "update-request" }}
+                    >
                       <img
                         src={blog.bannerImageUrl}
                         alt={blog.title}
@@ -57,7 +59,14 @@ const YourBlog = () => {
                 <div className="col-md-8">
                   <div className="blog-content">
                     <h3 className="blog-title">
-                      <Link to={`/update-blog/${blog._id}`}>{blog.title}</Link>
+                      <Link
+                        to={{
+                          pathname: `/blog/${blog._id}`,
+                        }}
+                        state={{ from: "update-request" }}
+                      >
+                        {blog.title}
+                      </Link>
                     </h3>
                     <p className="blog-userName">
                       {blog.date} | By <strong>{blog.userName}</strong>
@@ -71,10 +80,12 @@ const YourBlog = () => {
               </div>
             </div>
           ))
+        ) : (
+          <p>Loading...</p>
         )}
       </div>
     </div>
   );
 };
 
-export default YourBlog;
+export default UpdateRequest;

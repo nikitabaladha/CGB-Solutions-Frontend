@@ -1,0 +1,234 @@
+/* UpdateBlogForm.css
+
+.update-blog-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #effafc;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.update-blog-form-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-family: "Playfair Display", sans-serif;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-control,
+.form-control-file,
+.quill-editor {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus,
+.form-control-file:focus,
+.quill-editor .ql-container.ql-snow {
+  border-color: #007bff;
+  outline: none;
+}
+
+.quill-editor .ql-toolbar.ql-snow {
+  border-radius: 5px 5px 0 0;
+}
+
+.quill-editor .ql-container.ql-snow {
+  border-radius: 0 0 5px 5px;
+  height: 200px;
+}
+
+.preview-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+} */
+
+/* UpdateBlogForm.css */
+
+.update-blog-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #effafc;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.update-blog-form-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-family: "Playfair Display", sans-serif;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-control,
+.form-control-file,
+.quill-editor {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: border-color 0.2s;
+}
+
+.form-control:focus,
+.form-control-file:focus,
+.quill-editor .ql-container.ql-snow {
+  border-color: #007bff;
+  outline: none;
+}
+
+.quill-editor .ql-toolbar.ql-snow {
+  border-radius: 5px 5px 0 0;
+}
+
+.quill-editor .ql-container.ql-snow {
+  border-radius: 0 0 5px 5px;
+  height: 200px;
+}
+
+.preview-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 991px) {
+  .update-blog-form-container {
+    padding: 15px;
+  }
+
+  .update-blog-form-container h2 {
+    font-size: 1.75em;
+  }
+
+  .form-group label {
+    font-size: 0.9em;
+  }
+
+  .form-control,
+  .form-control-file,
+  .quill-editor {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+
+  .btn {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 767px) {
+  .update-blog-form-container {
+    padding: 10px;
+  }
+
+  .update-blog-form-container h2 {
+    font-size: 1.5em;
+  }
+
+  .form-group label {
+    font-size: 0.8em;
+  }
+
+  .form-control,
+  .form-control-file,
+  .quill-editor {
+    padding: 6px;
+    font-size: 0.8em;
+  }
+
+  .btn {
+    padding: 8px;
+    font-size: 0.8em;
+  }
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  font-size: 1em;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+}

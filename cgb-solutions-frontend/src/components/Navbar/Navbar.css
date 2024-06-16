@@ -2,6 +2,7 @@
   width: 130px;
   margin-left: 50px;
   font-family: "Anton", sans-serif;
+  margin-right: 900px; /* Adjust as needed for spacing */
 }
 
 .navbar-nav .nav-link {
@@ -23,9 +24,12 @@
   border-bottom: 3px solid #0d4278;
 }
 
+/* Button styles */
 .login-button,
 .logout-button,
-.signup-button {
+.signup-button,
+.create-blog-button,
+.your-blog-button {
   font-family: "Playfair Display", sans-serif;
   color: #0d4278;
   border-color: #0d4278;
@@ -42,17 +46,21 @@
   margin-right: 40px;
 }
 
+.create-blog-button,
+.your-blog-button {
+  margin-right: 10px;
+}
+
 .login-button:hover,
 .logout-button:hover,
-.signup-button:hover {
+.signup-button:hover,
+.create-blog-button:hover,
+.your-blog-button:hover {
   background-color: #0d4278;
   color: white;
 }
 
-.nav-btn {
-  margin-left: 900px;
-}
-
+/* Modal styles */
 .modal-header {
   background-color: #effafc;
   border-bottom: 1px solid #90a5ba;
@@ -68,7 +76,13 @@
   font-family: "Playfair Display", sans-serif;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1199px) {
+  #brand-logo {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 991px) {
   #brand-logo {
     width: 100px;
     margin-left: 20px;
@@ -81,10 +95,20 @@
 
   .login-button,
   .logout-button,
-  .signup-button {
+  .signup-button,
+  .create-blog-button,
+  .your-blog-button {
     font-size: 12px;
     margin-right: 10px;
     padding: 3px 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  #brand-logo {
+    width: 100px;
+    margin-left: 20px;
+    margin-right: 0;
   }
 
   .navbar-collapse {
@@ -97,38 +121,4 @@
     justify-content: center;
     width: 100%;
   }
-}
-
-@media (max-width: 767px) {
-  #brand-logo {
-    margin-right: 0;
-  }
-}
-
-.create-blog-button {
-  font-family: "Playfair Display", sans-serif;
-  color: #0d4278;
-  border-color: #0d4278;
-  box-shadow: 0 0 10px rgba(13, 66, 120, 0.5);
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
-.create-blog-button:hover {
-  background-color: #0d4278;
-  color: white;
-}
-
-.your-blog-button {
-  font-family: "Playfair Display", sans-serif;
-  color: #0d4278;
-  border-color: #0d4278;
-  box-shadow: 0 0 10px rgba(13, 66, 120, 0.5);
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
-.your-blog-button:hover {
-  background-color: #0d4278;
-  color: white;
 }

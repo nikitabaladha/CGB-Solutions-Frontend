@@ -1,3 +1,5 @@
+/* YourBlog.css */
+
 .blog {
   margin-bottom: 20px;
   margin-left: 40px;
@@ -32,6 +34,7 @@
 .blog-title {
   margin-top: 10px;
   font-size: 2rem;
+  font-weight: bold;
 }
 
 .blog-userName {
@@ -48,7 +51,61 @@
 }
 
 @media (max-width: 600px) {
-  .image-container {
-    padding: 0 !important;
+  .blog {
+    margin-left: 10px;
+    margin-right: 10px;
   }
+
+  .image-container {
+    padding: 0;
+  }
+
+  .blog-title {
+    font-size: 1.5rem;
+  }
+
+  .summary {
+    font-size: 0.875rem;
+  }
+
+  .blog-userName {
+    font-size: 0.875rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .blog-title {
+    font-size: 1.75rem;
+  }
+
+  .summary {
+    font-size: 1rem;
+  }
+
+  .blog-userName {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-family: "Playfair Display", sans-serif;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }

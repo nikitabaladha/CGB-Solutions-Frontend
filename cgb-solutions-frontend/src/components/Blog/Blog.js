@@ -1,15 +1,22 @@
-// components/Blog/Blog.js
-
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import "./Blog.css";
 import getAPI from "../../Api/axiosGet";
-import Navbar from "../Navbar/Navbar.js";
 
-const Blog = () => {
+import Navbar from "../Navbar/Navbar.js";
+import postAPI from "../../Api/axiosPost.js";
+
+const Blog = ({ showButtons, onDelete }) => {
   const { id } = useParams();
+  const location = useLocation();
   const [blog, setBlog] = useState(null);
   const [error, setError] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const navigate = useNavigate();
+
+  console.log("isAdmin:", isAdmin);
+  console.log("location.state.from:", location);
+  console.log("location.state:", location.state);
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -28,6 +35,42 @@ const Blog = () => {
 
     fetchBlog();
   }, [id]);
+
+  useEffect(() => {
+    const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+    if (userDetails?.role === "admin") {
+      setIsAdmin(true);
+    }
+  }, []);
+
+  const handleCreateApprove = async () => {
+    try {
+      const response = await postAPI(`/approve-create/${id}`);
+      if (response.data && !response.data.hasError) {
+        setBlog((prevBlog) => ({
+          ...prevBlog,
+          status: "approved",
+        }));
+        alert(response.data.message);
+        console.log("Blog creation approved successfully");
+      } else {
+        setError(response.data.message || "Error approving blog creation");
+      }
+    } catch (error) {
+      setError(error.message || "Error approving blog creation");
+      console.error("Error approving blog creation:", error);
+    }
+  };
+
+  const handleCreateReject = () => {
+    // Implement reject functionality
+    console.log("Create Rejected");
+  };
+
+  const handleEdit = () => {
+    // Redirect to UpdateBlogForm component with the blog ID
+    navigate(`/update-blog-form/${id}`);
+  };
 
   const renderSummaryWithContentImage = (summary) => {
     const paragraphs = summary.split("<br>");
@@ -84,6 +127,34 @@ const Blog = () => {
             </div>
 
             {renderSummaryWithContentImage(blog.summary)}
+
+            {showButtons && (
+              <div className="edit-delete-buttons">
+                <button className="edit-button" onClick={handleEdit}>
+                  Edit
+                </button>
+                <button
+                  className="delete-button"
+                  onClick={() => onDelete(blog)}
+                >
+                  Delete
+                </button>
+              </div>
+            )}
+
+            {isAdmin && location.state && (
+              <div className="approval-buttons">
+                <button
+                  className="approve-button"
+                  onClick={handleCreateApprove}
+                >
+                  Approve
+                </button>
+                <button className="reject-button" onClick={handleCreateReject}>
+                  Reject
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <p>Loading...</p>

@@ -1,13 +1,13 @@
-// src/components/CreateBlog/CreateBlog.js
-
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import postAPI from "../../Api/axiosPost";
-import "./CreateBlog.css";
+import putAPI from "../../Api/axiosPut";
+import getAPI from "../../Api/axiosGet";
+import "./UpdateBlogForm.css";
 
-const CreateBlog = () => {
+const UpdateBlogForm = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -18,7 +18,37 @@ const CreateBlog = () => {
     contentImageUrl: null,
   });
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        setLoading(true);
+        const response = await getAPI(`/blog/${id}`);
+        setLoading(false);
+
+        if (response.data && !response.data.hasError) {
+          const blogData = response.data.data;
+          setFormData({
+            title: blogData.title,
+            date: blogData.date,
+            summary: blogData.summary,
+            bannerImageUrl: blogData.bannerImageUrl || null,
+            contentImageUrl: blogData.contentImageUrl || null,
+          });
+        } else {
+          setError(response.data.message || "Error fetching blog");
+        }
+      } catch (err) {
+        setLoading(false);
+        setError(err.message || "Error fetching blog");
+        console.error("Error fetching blog:", err);
+      }
+    };
+
+    fetchBlog();
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,30 +86,26 @@ const CreateBlog = () => {
       formDataAPI.append("bannerImageUrl", bannerImageUrl);
       formDataAPI.append("contentImageUrl", contentImageUrl);
 
-      const response = await postAPI(`/blog`, formDataAPI, {
+      const response = await putAPI(`/blog/${id}`, formDataAPI, {
         "Content-Type": "multipart/form-data",
       });
 
       if (!response.hasError) {
-        alert(response.data.message);
-        console.log(
-          "Successful Blog submission Message:",
-          response.data.message
-        );
-        navigate("/");
+        console.log("Successful Blog update Message:", response.data.message);
+        navigate(`/blog/${id}`);
       } else {
         setError(response.data.message);
-        console.error("Blog submission Error:", response.data.message);
+        console.error("Blog update Error:", response.data.message);
       }
     } catch (error) {
       const errorMessage =
         error?.response?.data?.message ||
         "An unexpected error occurred. Please try again.";
-
       setError(errorMessage);
-      console.error("Error creating blog:", errorMessage);
+      console.error("Error updating blog:", errorMessage);
     }
   };
+
   const modules = {
     toolbar: [
       [{ header: "1" }, { header: "2" }, { font: [] }],
@@ -105,9 +131,13 @@ const CreateBlog = () => {
     "link",
   ];
 
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
-    <div className="create-blog-container">
-      <h2>Create Blog</h2>
+    <div className="update-blog-form-container">
+      <h2>Update Blog</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Title</label>
@@ -139,8 +169,15 @@ const CreateBlog = () => {
             onChange={handleFileChange}
             className="form-control-file"
             accept="image/*"
-            required
           />
+          {formData.bannerImageUrl &&
+            typeof formData.bannerImageUrl === "object" && (
+              <img
+                src={URL.createObjectURL(formData.bannerImageUrl)}
+                alt="Banner Preview"
+                className="preview-image"
+              />
+            )}
         </div>
         <div className="form-group">
           <label>Content Image</label>
@@ -150,8 +187,15 @@ const CreateBlog = () => {
             onChange={handleFileChange}
             className="form-control-file"
             accept="image/*"
-            required
           />
+          {formData.contentImageUrl &&
+            typeof formData.contentImageUrl === "object" && (
+              <img
+                src={URL.createObjectURL(formData.contentImageUrl)}
+                alt="Content Preview"
+                className="preview-image"
+              />
+            )}
         </div>
 
         <div className="form-group">
@@ -163,17 +207,18 @@ const CreateBlog = () => {
             modules={modules}
             formats={formats}
             placeholder="Write something amazing..."
+            required
           />
         </div>
 
         {error && <p className="error">{error}</p>}
 
         <button type="submit" className="btn btn-primary">
-          Create Blog
+          Update Blog
         </button>
       </form>
     </div>
   );
 };
 
-export default CreateBlog;
+export default UpdateBlogForm;
