@@ -1,15 +1,4 @@
-// Api/axiosGet.js
-
-import Axios from "axios";
-
-const baseURL = "http://localhost:3001/api";
-
-const axios = Axios.create({
-  baseURL,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+import axiosInstance from "../config/axiosConfig";
 
 async function getAPI(url, headers = {}, isPrivate = true) {
   try {
@@ -18,7 +7,7 @@ async function getAPI(url, headers = {}, isPrivate = true) {
       accessToken = JSON.parse(localStorage.getItem("accessToken"));
     }
 
-    const response = await axios.get(url, {
+    const response = await axiosInstance.get(url, {
       headers: {
         access_token: accessToken,
       },

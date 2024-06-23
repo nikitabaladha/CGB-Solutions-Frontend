@@ -1,15 +1,4 @@
-// src/Api/axiosPost.js
-
-import Axios from "axios";
-
-const baseURL = "http://localhost:3001/api";
-
-const axios = Axios.create({
-  baseURL,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+import axiosInstance from "../config/axiosConfig";
 
 async function postAPI(url, payload, headers = {}, isPrivate = true) {
   try {
@@ -18,7 +7,7 @@ async function postAPI(url, payload, headers = {}, isPrivate = true) {
       accessToken = JSON.parse(localStorage.getItem("accessToken"));
     }
 
-    const response = await axios.post(url, payload, {
+    const response = await axiosInstance.post(url, payload, {
       headers: {
         access_token: accessToken,
         ...headers,
