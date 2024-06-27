@@ -28,13 +28,4 @@ async function postAPI(url, payload, headers = {}, isPrivate = true) {
   }
 }
 
-export const isAuthenticated = () => {
-  const userInfo = localStorage.getItem("userInfo");
-  return userInfo !== null;
-};
-
-export const handleUnauthorized = (navigate) => {
-  navigate("/login");
-};
-
 export default postAPI;
